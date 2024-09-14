@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 public class planeScript : MonoBehaviour
@@ -85,12 +86,13 @@ public class planeScript : MonoBehaviour
                     input = 0;
                     isBreaking = false;
                 }
+
                 float acceleration = input * accelerationConst;
                 speed += acceleration * Time.deltaTime;
 
                 //gets direction
                 float pitchInput = -1 * side * Input.GetAxis("Vertical");
-                float pitchDeg = pitchInput * pitchDegrees;
+                float pitchDeg = pitchInput * pitchDegrees * Time.deltaTime * 100f;
                 if (isBreaking)
                 {
                     pitchDeg *= 3f;
@@ -164,11 +166,19 @@ public class planeScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == 3)
+        ProcessCollision(collision.gameObject);
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        ProcessCollision(collision.gameObject);
+    }
+    void ProcessCollision(GameObject collision)
+    {
+        if (collision.layer == 3)
         {
             Destroy(gameObject);
         }
-        if (collision.gameObject.layer == 7)
+        if (collision.layer == 7)
         {
             Destroy(gameObject);
         }
