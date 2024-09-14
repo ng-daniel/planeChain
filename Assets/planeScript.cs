@@ -8,6 +8,10 @@ public class planeScript : MonoBehaviour
     Rigidbody2D rb;
     Animator anim;
     SpriteRenderer sprite;
+
+    [SerializeField] GameObject brakeLight;
+    [SerializeField] GameObject throttleLight;
+
     [Space]
     [Header("Movement")]
     [SerializeField] float minSpeed;
@@ -19,6 +23,8 @@ public class planeScript : MonoBehaviour
     [SerializeField] float pitchDegrees;
     [SerializeField] float currentAngle;
     bool isBreaking;
+
+    [SerializeField] float maxFlightHeight;
 
     [Space]
     [Header("State")]
@@ -60,14 +66,22 @@ public class planeScript : MonoBehaviour
                     input = -1;
                     print("braking");
                     isBreaking = true;
+
+                    brakeLight.SetActive(true);
+                    throttleLight.SetActive(false);
+
                 }
                 else if (Input.GetKey(KeyCode.Space))
                 {
                     input = 1;
                     isBreaking = false;
+                    brakeLight.SetActive(false);
+                    throttleLight.SetActive(true);
                 }
                 else
                 {
+                    brakeLight.SetActive(false);
+                    throttleLight.SetActive(false);
                     input = 0;
                     isBreaking = false;
                 }
@@ -113,6 +127,11 @@ public class planeScript : MonoBehaviour
         }
         rb.velocity = dir * speed;
 
+        if (transform.position.y > maxFlightHeight)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, -1f);
+        }
+
 
     }
     bool IsGoingBackwards()
@@ -136,11 +155,23 @@ public class planeScript : MonoBehaviour
     }
     IEnumerator rollCoroutine()
     {
-        speed = speed * 1.5f;
+        speed = speed * 1.25f;
         side *= -1;
         sprite.flipY = !sprite.flipY;
         yield return new WaitForSeconds(rollTime);
         currentState = PlaneState.FLYING;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == 3)
+        {
+            Destroy(gameObject);
+        }
+        if (collision.gameObject.layer == 7)
+        {
+            Destroy(gameObject);
+        }
     }
 
 }

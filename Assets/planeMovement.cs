@@ -89,18 +89,5 @@ public class planeMovement : MonoBehaviour
         rb.AddForce(acceleration * dir, ForceMode2D.Force);
 
     }
-    void Rotate(float angle)
-    {
 
-    }
-    bool CheckIfGoingBackwards()
-    {
-        float range = 90;
-        float angle = Vector2.Angle(rb.velocity.normalized, -1 * dir);
-        if (Mathf.Abs(angle) < range)
-        {
-            return true;
-        }
-        return false;
-    }
 }
