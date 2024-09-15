@@ -54,15 +54,15 @@ public class enemySpawner : MonoBehaviour
                 break;
             case 2:
                 nCrash = 6;
+                nRanger = 1;
                 break;
             case 3:
                 nCrash = 4;
-                nRanger = 1;
+                nRanger = 2;
                 break;
             case 4:
                 nCrash = 6;
                 nRanger = 3;
-                nCat = 1;
                 break;
             case 5:
                 nCrash = 6;
