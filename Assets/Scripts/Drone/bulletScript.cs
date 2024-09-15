@@ -16,7 +16,6 @@ public class bulletScript : MonoBehaviour
     {
         this.direction = dir;
         rb.velocity = new Vector2(dir.x, dir.y) * speed;
-
     }
 
 

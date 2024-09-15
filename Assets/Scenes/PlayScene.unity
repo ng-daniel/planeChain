@@ -2053,7 +2053,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -2078,7 +2078,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 12.5
+  orthographic size: 19
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -4359,8 +4359,8 @@ Transform:
   m_GameObject: {fileID: 1089113511}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.071335, y: 10.638463, z: 0.7037814}
-  m_LocalScale: {x: 2.56, y: 3.25, z: 2.56}
+  m_LocalPosition: {x: 12.7, y: 11, z: 0.7037814}
+  m_LocalScale: {x: 2.56, y: 5.334071, z: 2.56}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1100002045}
@@ -7621,8 +7621,8 @@ MonoBehaviour:
   crash: {fileID: 9100039817807657065, guid: e74e550b3771f0d4a9eaabfc788cfa84, type: 3}
   ranger: {fileID: 3145580471820917566, guid: 07b7219714bd9024cb50df3e981df8d9, type: 3}
   cat: {fileID: 7215973867880847154, guid: d2471e1fffafd644081474004ac0631b, type: 3}
-  waveInterval: 10
-  phaseInterval: 30
+  waveInterval: 12
+  phaseInterval: 36
   phase: 0
   spawnBox1: {x: -28, y: 28, z: 50, w: 55}
 --- !u!1 &2104596284

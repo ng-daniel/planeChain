@@ -190,7 +190,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   playerPos: {x: 0, y: 0, z: 0}
-  spawnTime: 1
+  spawnTime: 3
 --- !u!50 &3769370219981122362
 Rigidbody2D:
   serializedVersion: 4

@@ -27,10 +27,11 @@ public class enemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        nCrash = 0;
+        nCrash = 1;
         nRanger = 0;
         nCat = 0;
         phase = 0;
+        spawnWave();
 
     }
 
@@ -66,12 +67,12 @@ public class enemySpawner : MonoBehaviour
             case 5:
                 nCrash = 6;
                 nRanger = 5;
-                nCat = 3;
+                nCat = 1;
                 break;
             case 6:
                 nCrash = 8;
                 nRanger = 6;
-                nCat = 4;
+                nCat = 1;
                 break;
         }
 
