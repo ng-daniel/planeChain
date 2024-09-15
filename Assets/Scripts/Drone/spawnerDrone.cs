@@ -16,6 +16,10 @@ public class spawnerDrone : MonoBehaviour
     [SerializeField] LayerMask playerLayer;
     [SerializeField] Vector3 playerPos;
 
+    [Header("SpawnVars")]
+    float spawnTimer;
+    [SerializeField] float spawnTime;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();

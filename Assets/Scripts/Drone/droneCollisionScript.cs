@@ -5,6 +5,8 @@ using UnityEngine;
 public class droneCollisionScript : MonoBehaviour
 {
 
+    public GameObject explosion;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,8 @@ public class droneCollisionScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ball"))
         {
+            Instantiate(explosion, transform.position, transform.rotation);
+            GameManager.Instance.incrementScore(1);
             Destroy(gameObject);
         }
     }

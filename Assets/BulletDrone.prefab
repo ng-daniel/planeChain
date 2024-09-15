@@ -104,7 +104,7 @@ MonoBehaviour:
   bullet: {fileID: 7647140481170210396, guid: 3124bc1c1e3b2d44c9a47fc1a851d833, type: 3}
   fireTime: 5
   rangeRadius: 45
-  fireRadius: 10
+  fireRadius: 15
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -128,10 +128,10 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 456
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -183,3 +183,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16fdd8598b682d5438810fd36b8b868b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosion: {fileID: 8324440910832374273, guid: 7270d4007ca90d54999b78101cd0eb8a, type: 3}

@@ -41,6 +41,8 @@ public class planeScript : MonoBehaviour
     [Header("Roll Nums")]
     [SerializeField] float rollTime;
 
+    public GameObject explosion;
+
 
 
     // Start is called before the first frame update
@@ -65,7 +67,6 @@ public class planeScript : MonoBehaviour
                 if (Input.GetKey(KeyCode.LeftShift))
                 {
                     input = -1;
-                    print("braking");
                     isBreaking = true;
 
                     brakeLight.SetActive(true);
@@ -108,11 +109,13 @@ public class planeScript : MonoBehaviour
                     speed = maxSpeed;
                 }
 
-                if (Input.GetKeyDown(KeyCode.D))
+                /*
+                if (false)
                 {
                     currentState = PlaneState.ROLLING;
                     StartCoroutine(rollCoroutine());
                 }
+                */
 
                 break;
             case PlaneState.ROLLING:
@@ -163,6 +166,14 @@ public class planeScript : MonoBehaviour
         yield return new WaitForSeconds(rollTime);
         currentState = PlaneState.FLYING;
     }
+    public float getSpeed()
+    {
+        return speed;
+    }
+    public float getHeight()
+    {
+        return transform.position.y;
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -176,11 +187,15 @@ public class planeScript : MonoBehaviour
     {
         if (collision.layer == 3)
         {
+            Instantiate(explosion, transform.position, transform.rotation);
             Destroy(gameObject);
+
         }
         if (collision.layer == 7)
         {
+            Instantiate(explosion, transform.position, transform.rotation);
             Destroy(gameObject);
+
         }
     }
 

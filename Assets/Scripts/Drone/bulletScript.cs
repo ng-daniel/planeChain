@@ -28,6 +28,10 @@ public class bulletScript : MonoBehaviour
             damageable.TakeDamage(damage);
             Die();
         }
+        if (collision.gameObject.CompareTag("Ball"))
+        {
+            Die();
+        }
     }
     void Update()
     {
