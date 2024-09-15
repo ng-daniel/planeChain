@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5186852438057571568}
   - component: {fileID: 4537982170549756555}
   - component: {fileID: 3818318353143094260}
+  - component: {fileID: -7190696425627723138}
   m_Layer: 7
   m_Name: CrashDrone
   m_TagString: Untagged
@@ -99,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da6add7f01b88334a908e0bb8ec5bd2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 6
   rangeRadius: 45
   playerLayer:
     serializedVersion: 2
@@ -124,10 +125,10 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 456
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -167,3 +168,15 @@ CircleCollider2D:
   m_Offset: {x: 0.04, y: 0.02}
   serializedVersion: 2
   m_Radius: 0.45
+--- !u!114 &-7190696425627723138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9100039817807657065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16fdd8598b682d5438810fd36b8b868b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

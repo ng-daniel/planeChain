@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5189709060094392087}
   - component: {fileID: 6513026267079930759}
   - component: {fileID: 3123804768824394829}
+  - component: {fileID: 109993578410374441}
   m_Layer: 0
   m_Name: BulletDrone
   m_TagString: Untagged
@@ -99,9 +100,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2649c448e827284babcc77a3433e586, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
+  speed: 4
   bullet: {fileID: 7647140481170210396, guid: 3124bc1c1e3b2d44c9a47fc1a851d833, type: 3}
-  fireTime: 1
+  fireTime: 5
   rangeRadius: 45
   fireRadius: 10
   playerLayer:
@@ -170,3 +171,15 @@ CircleCollider2D:
   m_Offset: {x: -0.07, y: -0.04}
   serializedVersion: 2
   m_Radius: 0.45
+--- !u!114 &109993578410374441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3145580471820917566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16fdd8598b682d5438810fd36b8b868b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
