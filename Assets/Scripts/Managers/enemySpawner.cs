@@ -23,9 +23,6 @@ public class enemySpawner : MonoBehaviour
 
     [Header("Spawnboxes")]
     [SerializeField] Vector4 spawnBox1;
-    [SerializeField] Vector4 spawnBox2;
-    [SerializeField] Vector4 spawnBox3;
-    [SerializeField] Vector4 spawnBox4;
 
     // Start is called before the first frame update
     void Start()
@@ -64,11 +61,16 @@ public class enemySpawner : MonoBehaviour
             case 4:
                 nCrash = 6;
                 nRanger = 3;
-                nCat = 2;
+                nCat = 1;
                 break;
             case 5:
                 nCrash = 6;
                 nRanger = 5;
+                nCat = 3;
+                break;
+            case 6:
+                nCrash = 8;
+                nRanger = 6;
                 nCat = 4;
                 break;
         }

@@ -27,13 +27,21 @@ public class GameManager : MonoBehaviour
 
     public bool isDead;
 
+    public AudioSource metalPipe;
+
+
     void Start()
     {
         _instance = this;
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player == null)
         {
-            isDead = true;
+            if (!isDead)
+            {
+                isDead = true;
+                metalPipe.Play();
+            }
+
         }
         else
         {
@@ -51,6 +59,7 @@ public class GameManager : MonoBehaviour
 
         if (isDead)
         {
+
             return;
         }
         time += Time.deltaTime;

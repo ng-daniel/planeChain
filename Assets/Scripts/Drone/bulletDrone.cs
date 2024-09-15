@@ -20,10 +20,14 @@ public class bulletDrone : MonoBehaviour
     [SerializeField] LayerMask playerLayer;
     [SerializeField] Vector3 playerPos;
 
+    SpriteRenderer sRender;
+
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        sRender = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -37,6 +41,8 @@ public class bulletDrone : MonoBehaviour
         {
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             playerPos = player.transform.position;
+
+            sRender.flipX = playerPos.x < transform.position.x;
 
         }
         else

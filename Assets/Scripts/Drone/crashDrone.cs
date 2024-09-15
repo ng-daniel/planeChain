@@ -16,21 +16,24 @@ public class crashDrone : MonoBehaviour
     [SerializeField] LayerMask playerLayer;
     [SerializeField] Vector3 playerPos;
 
+    SpriteRenderer sRender;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        sRender = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
-
         detectingPlayer = Physics2D.OverlapCircle(transform.position, rangeRadius, playerLayer);
         if (detectingPlayer)
         {
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             playerPos = player.transform.position;
+
+            sRender.flipX = playerPos.x < transform.position.x;
 
         }
         else
@@ -40,6 +43,5 @@ public class crashDrone : MonoBehaviour
 
         Vector3 direction = (playerPos - transform.position).normalized;
         rb.velocity = new Vector2(direction.x, direction.y) * speed;
-
     }
 }

@@ -6,10 +6,17 @@ using UnityEngine;
 public class UIManagerScript : MonoBehaviour
 {
 
+
+    public GameObject playScreen;
+    public GameObject gameOverScreen;
+
     public TMP_Text scoreText;
     public TMP_Text timeText;
     public TMP_Text speedText;
     public TMP_Text heightText;
+
+    public TMP_Text overScore;
+    public TMP_Text overTime;
 
     int score;
     float time;
@@ -22,7 +29,7 @@ public class UIManagerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        playScreen.SetActive(true);
 
     }
 
@@ -32,6 +39,16 @@ public class UIManagerScript : MonoBehaviour
 
         if (GameManager.Instance.isDead)
         {
+            if (playScreen.activeSelf)
+            {
+                playScreen.SetActive(false);
+            }
+            if (!gameOverScreen.activeSelf)
+            {
+                gameOverScreen.SetActive(true);
+            }
+            overScore.text = formatScore(score);
+            overTime.text = formatTime(time);
             return;
         }
 

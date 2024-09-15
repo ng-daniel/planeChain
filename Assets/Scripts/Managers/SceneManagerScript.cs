@@ -32,7 +32,7 @@ public class SceneManagerScript : MonoBehaviour
     {
 
     }
-    void LoadScene(int num)
+    public void LoadScene(int num)
     {
         SceneManager.LoadScene(num);
     }
