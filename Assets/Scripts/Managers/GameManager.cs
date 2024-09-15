@@ -36,11 +36,7 @@ public class GameManager : MonoBehaviour
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player == null)
         {
-            if (!isDead)
-            {
-                isDead = true;
-                metalPipe.Play();
-            }
+
 
         }
         else
@@ -53,7 +49,11 @@ public class GameManager : MonoBehaviour
     {
         if (playerScript == null)
         {
-            isDead = true;
+            if (!isDead)
+            {
+                isDead = true;
+                metalPipe.Play();
+            }
             speed = 0;
         }
 
