@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 6513026267079930759}
   - component: {fileID: 3123804768824394829}
   - component: {fileID: 109993578410374441}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BulletDrone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -186,8 +186,9 @@ MonoBehaviour:
   speed: 4
   bullet: {fileID: 7647140481170210396, guid: 3124bc1c1e3b2d44c9a47fc1a851d833, type: 3}
   fireTime: 5
-  rangeRadius: 45
+  rangeRadius: 70
   fireRadius: 15
+  randomRotationMagnitude: 45
   playerLayer:
     serializedVersion: 2
     m_Bits: 64

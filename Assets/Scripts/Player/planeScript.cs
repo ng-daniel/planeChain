@@ -27,20 +27,6 @@ public class planeScript : MonoBehaviour
 
     [SerializeField] float maxFlightHeight;
 
-    [Space]
-    [Header("State")]
-    PlaneState currentState;
-    public enum PlaneState
-    {
-        FLYING,
-        DEAD,
-        ROLLING,
-
-    }
-    [Space]
-    [Header("Roll Nums")]
-    [SerializeField] float rollTime;
-
     public GameObject explosion;
 
 
@@ -58,73 +44,51 @@ public class planeScript : MonoBehaviour
     void Update()
     {
 
-        switch (currentState)
+        //gets new speed
+        float input; //input value
+
+        brakeLight.SetActive(false);
+        throttleLight.SetActive(false);
+        input = 0;
+        isBreaking = false;
+
+        if (Input.GetKey(KeyCode.Space))
         {
-            case PlaneState.FLYING:
+            input = 1;
+            isBreaking = false;
+            brakeLight.SetActive(false);
+            throttleLight.SetActive(true);
+        }
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            input = -1;
+            isBreaking = true;
 
-                //gets new speed
-                float input; //input value
-                if (Input.GetKey(KeyCode.LeftShift))
-                {
-                    input = -1;
-                    isBreaking = true;
+            brakeLight.SetActive(true);
+            throttleLight.SetActive(false);
 
-                    brakeLight.SetActive(true);
-                    throttleLight.SetActive(false);
-
-                }
-                else if (Input.GetKey(KeyCode.Space))
-                {
-                    input = 1;
-                    isBreaking = false;
-                    brakeLight.SetActive(false);
-                    throttleLight.SetActive(true);
-                }
-                else
-                {
-                    brakeLight.SetActive(false);
-                    throttleLight.SetActive(false);
-                    input = 0;
-                    isBreaking = false;
-                }
-
-                float acceleration = input * accelerationConst;
-                speed += acceleration * Time.deltaTime;
-
-                //gets direction
-                float pitchInput = -1 * side * Input.GetAxis("Vertical");
-                float pitchDeg = pitchInput * pitchDegrees * Time.deltaTime * 100f;
-                if (isBreaking)
-                {
-                    pitchDeg *= 3f;
-                }
-
-                currentAngle = GetAngle(Vector2.right, rb.velocity.normalized);
-                transform.rotation = Quaternion.Euler(new Vector3(0, 0, currentAngle));
-                Vector2 newDir = Quaternion.AngleAxis(pitchDeg * Mathf.Deg2Rad, Vector3.forward) * dir;
-                dir = newDir.normalized;
-
-                if (rb.velocity.magnitude > maxSpeed)
-                {
-                    speed = maxSpeed;
-                }
-
-                /*
-                if (false)
-                {
-                    currentState = PlaneState.ROLLING;
-                    StartCoroutine(rollCoroutine());
-                }
-                */
-
-                break;
-            case PlaneState.ROLLING:
-
-                break;
-            case PlaneState.DEAD:
-                break;
         }
 
+        float acceleration = input * accelerationConst;
+        speed += acceleration * Time.deltaTime;
+
+        //gets direction
+        float pitchInput = -1 * side * Input.GetAxis("Horizontal");
+        float pitchDeg = pitchInput * pitchDegrees * Time.deltaTime * 100f;
+        if (isBreaking)
+        {
+            pitchDeg *= 3f;
+        }
+
+        currentAngle = GetAngle(Vector2.right, rb.velocity.normalized);
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, currentAngle));
+        Vector2 newDir = Quaternion.AngleAxis(pitchDeg * Mathf.Deg2Rad, Vector3.forward) * dir;
+        dir = newDir.normalized;
+
+        if (rb.velocity.magnitude > maxSpeed)
+        {
+            speed = maxSpeed;
+        }
 
         if (rb.velocity.magnitude < minSpeed)
         {
@@ -139,33 +103,12 @@ public class planeScript : MonoBehaviour
 
 
     }
-    bool IsGoingBackwards()
-    {
-        float range = 90;
-        float angle = Vector2.Angle(rb.velocity.normalized, -1 * dir);
-        if (Mathf.Abs(angle) < range)
-        {
-            return true;
-        }
-        return false;
-    }
     private static float GetAngle(Vector2 v1, Vector2 v2)
     {
         var sign = Mathf.Sign(v1.x * v2.y - v1.y * v2.x);
         return Vector2.Angle(v1, v2) * sign;
     }
-    void FlipPlane()
-    {
 
-    }
-    IEnumerator rollCoroutine()
-    {
-        speed = speed * 1.25f;
-        side *= -1;
-        sprite.flipY = !sprite.flipY;
-        yield return new WaitForSeconds(rollTime);
-        currentState = PlaneState.FLYING;
-    }
     public float getSpeed()
     {
         return speed;

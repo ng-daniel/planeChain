@@ -70,8 +70,8 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 2
+  m_PointLightInnerRadius: 1
+  m_PointLightOuterRadius: 3
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 3769370219981122362}
   - component: {fileID: 2036514590028691883}
   - component: {fileID: 514561972788648527}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SpawnerDrone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,14 +183,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60e85962abd50a344ab3debc8ffe0ad2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 6
   bomber: {fileID: 802562057211172453, guid: 7a11758ae5bfafb41abf770ba9ffc2ce, type: 3}
-  rangeRadius: 45
+  rangeRadius: 70
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
   playerPos: {x: 0, y: 0, z: 0}
-  spawnTime: 3
+  spawnTime: 8
 --- !u!50 &3769370219981122362
 Rigidbody2D:
   serializedVersion: 4

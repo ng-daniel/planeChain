@@ -50,27 +50,28 @@ public class enemySpawner : MonoBehaviour
                 nCrash = 2;
                 break;
             case 1:
-                nCrash = 4;
+                nCrash = 3;
                 break;
             case 2:
-                nCrash = 6;
+                nCrash = 4;
                 nRanger = 1;
                 break;
             case 3:
-                nCrash = 4;
+                nCrash = 3;
                 nRanger = 2;
+                nCat = 1;
                 break;
             case 4:
-                nCrash = 6;
-                nRanger = 3;
+                nCrash = 3;
+                nRanger = 4;
                 break;
             case 5:
-                nCrash = 6;
-                nRanger = 5;
+                nCrash = 3;
+                nRanger = 4;
                 nCat = 1;
                 break;
             case 6:
-                nCrash = 8;
+                nCrash = 3;
                 nRanger = 6;
                 nCat = 1;
                 break;

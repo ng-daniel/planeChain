@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 8
-  rangeRadius: 50
+  rangeRadius: 70
   playerLayer:
     serializedVersion: 2
     m_Bits: 64

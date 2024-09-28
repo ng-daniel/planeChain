@@ -13,6 +13,7 @@ public class bulletDrone : MonoBehaviour
     [SerializeField] float rangeRadius;
     [SerializeField] float fireRadius;
     bool detectingPlayer;
+    [SerializeField] float randomRotationMagnitude;
 
     bool inRange;
     bool isFiring;
@@ -69,7 +70,13 @@ public class bulletDrone : MonoBehaviour
     }
     void Fire()
     {
+        int randomAngle = (int)Random.Range(0, randomRotationMagnitude);
+        if (randomAngle % 2 == 0)
+        {
+            randomAngle *= -1;
+        }
         Vector3 aimDirection = (playerPos - transform.position).normalized;
+        aimDirection = Quaternion.Euler(0, 0, randomAngle) * aimDirection;
         bulletScript bScript = Instantiate(bullet, transform.position, transform.rotation).GetComponent<bulletScript>();
         bScript.SetDirection(aimDirection);
     }
